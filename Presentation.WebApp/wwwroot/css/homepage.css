@@ -13,7 +13,8 @@
     overflow: hidden;
 }
 
-/* header */
+/* ---------------------------------------------------- HEADER ---------------------------------------------------- */
+
 
 header {
     background-color: transparent;
@@ -174,3 +175,60 @@ header {
         align-self: end;
         display: block;
     }
+
+/* ---------------------------------------------------- BRANDS ---------------------------------------------------- */
+
+.section__brands {
+    background-color: var(--brands-background-color);
+    display: none;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin: 1.5rem 0;
+}
+
+@media (min-width: 992px) {
+    .section__brands {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (min-width: 1600px) {
+    .section__brands {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.section__brands .brand-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+    .section__brands .brand-slider {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.section__brands .brand-slider #brand-3,
+.section__brands .brand-slider #brand-4,
+.section__brands .brand-slider #brand-5 {
+    display: none;
+}
+
+@media (min-width: 1600px) {
+    .section__brands .brand-slider #brand-3,
+    .section__brands .brand-slider #brand-4,
+    .section__brands .brand-slider #brand-5 {
+        display: block;
+    }
+}
+
+.section__brands h2 {
+    margin: 0;
+    text-align: right;
+    font-weight: 700;
+}
