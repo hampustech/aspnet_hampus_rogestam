@@ -14,24 +14,26 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/css/fonts.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
 </head>
 <body>
 
     <div class="app-layout">
-        <header>
-            <partial name="Partials/Globals/_HeaderSection" />
+        <partial name="Partials/Globals/_HeaderSection" />
 
-            @if (IsSectionDefined("Hero"))
-                @await RenderSectionAsync("Hero", required: false)
-            
-        </header>
-        <main>
-            @RenderBody()
-        </main>
-        <footer>
-            <partial name="Partials/Globals/_FooterSection" />
-        </footer>
+        @if (IsSectionDefined("Hero"))
+        {
+            @await RenderSectionAsync("Hero", required: false)
+        }
     </div>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <partial name="Partials/Globals/_FooterSection" />
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
