@@ -2,12 +2,72 @@
     var items = faqService.GetFaqItems();
 }
 
-<section class="faq-section">
-    @foreach(var faq in items)
+
+<!-- FAQ Section -->
+<section class="faq-section section">
+    <div class="faq-image">
+        <img src="/images/faq-image-man-training.png" alt="Man traning image">
+    </div>
+    <div class="faq-content">
+        <ul class="faq-description">
+            <li>Frequently Asked Questions</li>
+        </ul>
+        <h2>Common questions about gym and training</h2>
+        <ul class="faq-questions">
+
+            <li class="question-item">
+                <span>Q1. Do i need prior gym experience to join CoreFitness?</span>
+                <img src="/images/chevron-up.png" alt="Toggle arrow">
+            </li>
+            <hr>
+
+            <p>
+                No, GymPro is designed for all fitness levels. Our trainers guide beginners with proper techniques and structured
+                workout plans to help them start safely and confidently.
+                <ul class="faq-answers">
+                    <li class="answer">Every new member recives a personalized introduction to equipments</li>
+                    <li class="answer">Workouts are designed to grow with you, ensuring beginners can start safely</li>
+                </ul>
+            </p>
+
+                        
+            <li class="question-item">
+                <span>Q2. What facilities are included with the membership?</span>
+                <img src="/images/chevron-down.png" alt="Toggle arrow">
+            </li>
+            <hr>
+
+            <li class="question-item">
+                <span>Q3. Can I try the gym before taking a membership?</span>
+                <img src="/images/chevron-down.png" alt="Toggle arrow">
+            </li>
+            <hr>
+
+            <li class="question-item">
+                <span>Q4. Are there group workout programs available?</span>
+                <img src="/images/chevron-down.png" alt="Toggle arrow">
+            </li>
+            <hr>
+
+            <li class="question-item">
+                <span>Q5. Is nutrition guidance included in the plans?</span>
+                <img src="/images/chevron-down.png" alt="Toggle arrow">
+            </li>
+            <hr>
+
+        </ul>
+    </div>
+</section>
+
+
+
+
+
+@*     @foreach(var faq in items)
     {
         <div>
             <div>@faq.Id</div>
             <p>@faq.Description</p>
         </div>
-    }
-</section>
+    } *@
+@* </section> *@
