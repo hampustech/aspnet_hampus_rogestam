@@ -1,0 +1,239 @@
+﻿.sign-in-page {
+    padding: 5rem 0 7rem;
+    background-color: #f5f5f5;
+}
+
+    .sign-in-page .container {
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+
+.sign-in-page__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sign-in-card {
+    width: 100%;
+    max-width: 560px;
+    background-color: #f3f3f3;
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+}
+
+.sign-in-card__header {
+    margin-bottom: 1.5rem;
+}
+
+.sign-in-card__title {
+    margin: 0;
+    color: #111111;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.sign-in-card__description {
+    margin: 1rem 0 0;
+    color: #7a7a7a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.sign-in-card__divider {
+    height: 1px;
+    background-color: #dddddd;
+    margin: 1.75rem 0 2rem;
+}
+
+.sign-in-card__socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-btn {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #d8d8d8;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #2c2a35;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+    .social-btn:hover {
+        background-color: #fafafa;
+        border-color: #cfcfcf;
+    }
+
+.sign-in-card__or {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+    .sign-in-card__or::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #dddddd;
+        transform: translateY(-50%);
+    }
+
+    .sign-in-card__or span {
+        position: relative;
+        z-index: 1;
+        padding: 0 1rem;
+        background-color: #f3f3f3;
+        color: #8a8a8a;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+    }
+
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+    .form-group label {
+        color: #2c2a35;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+.form-group__label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-link {
+    color: #c8dd1d;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    .form-link:hover {
+        text-decoration: underline;
+    }
+
+.sign-in-form input[type="email"],
+.sign-in-form input[type="password"] {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    background-color: #fafafa;
+    padding: 0 1rem;
+    color: #2c2a35;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+    .sign-in-form input[type="email"]::placeholder,
+    .sign-in-form input[type="password"]::placeholder {
+        color: #b1b1b1;
+    }
+
+    .sign-in-form input[type="email"]:focus,
+    .sign-in-form input[type="password"]:focus {
+        border-color: #d7eb31;
+        background-color: #ffffff;
+    }
+
+.sign-in-form__button {
+    width: 100%;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 999px;
+    background-color: #d7eb31;
+    color: #2c2a35;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .sign-in-form__button:hover {
+        background-color: #e6fb34;
+    }
+
+.form-checkbox {
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+    .form-checkbox input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #d7eb31;
+    }
+
+    .form-checkbox label {
+        color: #7a7a7a;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+@media (max-width: 768px) {
+    .sign-in-page {
+        padding: 3rem 0 4rem;
+    }
+
+    .sign-in-card {
+        padding: 2rem 1.25rem;
+    }
+
+    .sign-in-card__title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sign-in-card {
+        border-radius: 18px;
+    }
+
+    .sign-in-card__title {
+        font-size: 1.9rem;
+    }
+
+    .form-group__label-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-checkbox {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
