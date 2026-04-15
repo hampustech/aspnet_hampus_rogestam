@@ -1,0 +1,45 @@
+﻿<section class="account-details">
+    <div class="account-details__card">
+        <h2 class="account-details__title">About Me</h2>
+        <hr class="account-details__divider" />
+
+        <form class="account-details__form">
+            <div class="account-details__field">
+                <label for="firstName">First Name</label>
+                <input id="firstName" type="text" placeholder="Enter First Name" />
+            </div>
+
+            <div class="account-details__field">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text" placeholder="Enter Last Name" />
+            </div>
+
+            <div class="account-details__field">
+                <label for="email">Email Address *</label>
+                <input id="email" type="email" placeholder="username@domain.com" />
+            </div>
+
+            <div class="account-details__field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" type="text" placeholder="Enter Phone Number" />
+            </div>
+
+            <div class="account-details__field">
+                <label for="profileImage">Profile Image</label>
+
+                <div class="account-details__file-upload">
+                    <input id="profileImageText" type="text" placeholder="Upload Profile Image" readonly />
+                    <label for="profileImage" class="account-details__browse-btn">Browse</label>
+                    <input id="profileImage" type="file" hidden />
+                </div>
+            </div>
+
+            <div class="account-details__actions">
+                <button type="submit" class="account-details__save-btn">
+                    Save
+                    <span>&rsaquo;</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
