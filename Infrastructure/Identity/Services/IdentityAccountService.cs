@@ -7,18 +7,48 @@ namespace Infrastructure.Identity.Services;
 
 public class IdentityAccountService(UserManager<AppUser> userManager) : IAccountService
 {
-    public Task<AccountResult> DeleteUserAccountAsync(string userId)
+    public async Task<AccountResult> GetUserAccountAsync(string userId)
     {
-        throw new NotImplementedException();
+        var user = await userManager.FindByIdAsync(userId);
+        if (user == null)
+            return AccountResult.NotFound();
+
+        return AccountResult.Ok(new AccountDetails(
+            UserId: user.Id,
+            Email: user.Email,
+            FirstName: user.FirstName,
+            LastName: user.LastName,
+            PhoneNumber: user.PhoneNumber
+        ));
     }
 
-    public Task<AccountResult> GetUserAccountAsync(string userId)
+    public async Task<AccountResult> UpdateUserAccountDetailsAsync(UpdateAccountDetails details)
     {
-        throw new NotImplementedException();
+        var user = await userManager.FindByIdAsync(details.UserId!);
+        if (user == null)
+            return AccountResult.NotFound();
+
+        user.FirstName = details.FirstName;
+        user.LastName = details.LastName;
+        user.PhoneNumber = details.PhoneNumber;
+
+        var result = await userManager.UpdateAsync(user);
+        if (!result.Succeeded)
+            return AccountResult.Failed(result.Errors.First().Description);
+
+        return AccountResult.Ok();
     }
 
-    public Task<AccountResult> UpdateUserAccountDetailsAsync(UpdateAccountDetails details)
+    public async Task<AccountResult> DeleteUserAccountAsync(string userId)
     {
-        throw new NotImplementedException();
+        var user = await userManager.FindByIdAsync(userId);
+        if (user == null)
+            return AccountResult.NotFound();
+
+        var result = await userManager.DeleteAsync(user);
+        if (!result.Succeeded)
+            return AccountResult.Failed(result.Errors.First().Description);
+
+        return AccountResult.Ok();
     }
 }

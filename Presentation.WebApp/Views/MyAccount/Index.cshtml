@@ -1,6 +1,8 @@
-﻿@{
+﻿@model Presentation.WebApp.Models.MyAccountViewModel
+
+@{
     ViewData["Title"] = "My Account - About Me";
 }
 
-<partial name="Partials/Sections/MyAccount/_AboutMeSection" />
+<partial name="Partials/Sections/MyAccount/_AboutMeSection" model="Model" />
 <partial name="Partials/Sections/MyAccount/_StatisticsSection" />

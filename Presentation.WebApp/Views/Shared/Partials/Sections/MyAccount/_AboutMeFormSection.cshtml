@@ -1,37 +1,34 @@
-﻿<section class="account-details">
+﻿@model Presentation.WebApp.Models.MyAccountViewModel
+
+<section class="account-details">
     <div class="account-details__card">
         <h2 class="account-details__title">About Me</h2>
         <hr class="account-details__divider" />
 
-        <form class="account-details__form">
+        <form asp-action="Update" asp-controller="MyAccount" method="post" class="account-details__form">
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
             <div class="account-details__field">
-                <label for="firstName">First Name</label>
-                <input id="firstName" type="text" placeholder="Enter First Name" />
+                <label asp-for="FirstName">First Name</label>
+                <input asp-for="FirstName" type="text" placeholder="Enter First Name" />
             </div>
 
             <div class="account-details__field">
-                <label for="lastName">Last Name</label>
-                <input id="lastName" type="text" placeholder="Enter Last Name" />
+                <label asp-for="LastName">Last Name</label>
+                <input asp-for="LastName" type="text" placeholder="Enter Last Name" />
             </div>
 
             <div class="account-details__field">
-                <label for="email">Email Address *</label>
-                <input id="email" type="email" placeholder="username@domain.com" />
+                <label asp-for="Email">Email Address</label>
+                <input asp-for="Email" type="email" readonly />
             </div>
 
             <div class="account-details__field">
-                <label for="phone">Phone Number</label>
-                <input id="phone" type="text" placeholder="Enter Phone Number" />
-            </div>
-
-            <div class="account-details__field">
-                <label for="profileImage">Profile Image</label>
-
-                <div class="account-details__file-upload">
-                    <input id="profileImageText" type="text" placeholder="Upload Profile Image" readonly />
-                    <label for="profileImage" class="account-details__browse-btn">Browse</label>
-                    <input id="profileImage" type="file" hidden />
-                </div>
+                <label asp-for="PhoneNumber">Phone Number</label>
+                <input asp-for="PhoneNumber" type="text" placeholder="Enter Phone Number" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
 
             <div class="account-details__actions">
@@ -40,6 +37,14 @@
                     <span>&rsaquo;</span>
                 </button>
             </div>
+        </form>
+
+        <form asp-action="Delete" asp-controller="MyAccount" method="post" style="margin-top: 1rem;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="account-details__save-btn" style="background-color: red;"
+                onclick="return confirm('Are you sure you want to delete your account?')">
+                Delete Account
+            </button>
         </form>
     </div>
 </section>

@@ -1,6 +1,12 @@
+@model Presentation.WebApp.Models.SignInViewModel
+
 @{
     ViewData["Title"] = "Sign In";
     ViewData["HideFooter"] = true;
 }
 
-<partial name="Partials/Sections/Authentication/_SignInSection" />
+<partial name="Partials/Sections/Authentication/_SignInSection" model="Model" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

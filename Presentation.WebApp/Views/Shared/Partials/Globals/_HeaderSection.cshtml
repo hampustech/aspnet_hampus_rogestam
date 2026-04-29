@@ -26,12 +26,27 @@
             </nav>
             <nav class="account-menu">
                 <ul class="menu">
-                    <li class="menu-item">
-                        <a class="menu-item-link" asp-action="SignUp" asp-controller="Authentication">Become Member</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="menu-item-button" asp-action="SignIn" asp-controller="Authentication">Sign In</a>
-                    </li>
+                    @if (User.Identity!.IsAuthenticated)
+                    {
+                        <li class="menu-item">
+                            <a class="menu-item-link" asp-action="Index" asp-controller="MyAccount">My Account</a>
+                        </li>
+                        <li class="menu-item">
+                            <form asp-action="SignOut" asp-controller="Authentication" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="menu-item-button">Sign Out</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="menu-item">
+                            <a class="menu-item-link" asp-action="SignUp" asp-controller="Authentication">Become Member</a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-item-button" asp-action="SignIn" asp-controller="Authentication">Sign In</a>
+                        </li>
+                    }
                 </ul>
             </nav>
         </section>

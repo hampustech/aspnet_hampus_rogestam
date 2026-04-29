@@ -22,7 +22,9 @@ public static class IdentityServiceCollectionExtensions
 
         services.ConfigureApplicationCookie(x =>
         {
-
+            x.LoginPath = "/authentication/signin";
+            x.LogoutPath = "/authentication/signout";
+            x.AccessDeniedPath = "/errors/forbidden";
         });
 
         services.AddScoped<IAuthService, IdentityAuthService>();

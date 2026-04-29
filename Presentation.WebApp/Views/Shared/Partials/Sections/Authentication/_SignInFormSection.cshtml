@@ -1,3 +1,5 @@
+@model Presentation.WebApp.Models.SignInViewModel
+
 <section class="sign-in-card">
 
     <div class="sign-in-card__header">
@@ -10,7 +12,6 @@
 
     <div class="sign-in-card__divider"></div>
 
-    <!-- Social login -->
     <div class="sign-in-card__socials">
         <a href="#" class="social-btn"><i class="fa-brands fa-google"></i></a>
         <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
@@ -21,36 +22,35 @@
         <span>OR CONTINUE WITH</span>
     </div>
 
-    <!-- Form -->
-    <form class="sign-in-form">
+    <form asp-controller="Authentication" asp-action="SignIn" method="post" class="sign-in-form">
+        @Html.AntiForgeryToken()
 
-        <!-- Email -->
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" placeholder="Enter Email Address" />
+            <label asp-for="Email">Email Address *</label>
+            <input asp-for="Email" type="email" placeholder="Enter Email Address" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
 
-        <!-- Password -->
         <div class="form-group">
             <div class="form-group__label-row">
-                <label>Password</label>
+                <label asp-for="Password">Password</label>
                 <a href="#" class="form-link">Forgot your password?</a>
             </div>
-            <input type="password" placeholder="Enter Password" />
+            <input asp-for="Password" type="password" placeholder="Enter Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
-        <!-- Button -->
+        <div class="form-checkbox">
+            <input asp-for="RememberMe" type="checkbox" id="rememberMe" />
+            <label for="rememberMe">Remember me</label>
+        </div>
+
         <button type="submit" class="btn btn-primary sign-in-form__button">
             Continue
             <i class="fa-solid fa-arrow-right"></i>
         </button>
-
-        <!-- Terms -->
-        <div class="form-checkbox">
-            <input type="checkbox" id="terms" />
-            <label for="terms">Accept user terms and conditions</label>
-        </div>
-
     </form>
 
 </section>

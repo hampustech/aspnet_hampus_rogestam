@@ -1,3 +1,5 @@
+@model Presentation.WebApp.Models.SignUpViewModel
+
 <section class="sign-in-card">
 
     <div class="sign-in-card__header">
@@ -11,7 +13,6 @@
 
     <div class="sign-in-card__divider"></div>
 
-    <!-- Social login -->
     <div class="sign-in-card__socials">
         <a href="#" class="social-btn"><i class="fa-brands fa-google"></i></a>
         <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
@@ -22,23 +23,23 @@
         <span>OR CONTINUE WITH</span>
     </div>
 
-    <!-- Form -->
-    <form class="sign-in-form">
+    <form asp-controller="Authentication" asp-action="SignUp" method="post" class="sign-in-form">
+        @Html.AntiForgeryToken()
 
-        <!-- Email -->
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" placeholder="Enter Email Address" />
+            <label asp-for="Email">Email Address *</label>
+            <input asp-for="Email" type="email" placeholder="Enter Email Address" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
 
-        <!-- Button -->
         <button type="submit" class="btn btn-primary sign-in-form__button">
             Continue
             <i class="fa-solid fa-arrow-right"></i>
         </button>
 
         <p class="sign-up-hint">We will send a verification code to your email address.</p>
-
     </form>
 
 </section>
